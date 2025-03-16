@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    color: #000;
+    --color-green: #05662C;
+    --color-green-lg:#66C622;
+    --color-bg-gray: #eeeeee;
+    --color-white: #ffffff;
+    --color-placeholder-input: #A9A9A9;
+    --color-placeholder-input: #4D4848;
+    --radius-input: 1rem;
+    
+    
+}
+
+
+html{
+    font-size: 62.5%;
+}
+
+h1{
+    font-size:3rem;
+    line-height: 3.5rem;
+}
+h2,h3{
+    font-size: 2.4rem;
+}
+p,a,span{
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+}
+
+body{
+    background-color: var(--color-bg-gray);
+}
+
+input[type=submit], button{
+    cursor: pointer;
+}

@@ -1,0 +1,52 @@
+.containerHome_banner{
+    height: 50rem;
+    background-image: url("/banner-home.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+
+.containerHome_filter{
+    
+}
+
+.containerHome_filter > div{
+    padding: 6rem;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: -5rem;
+    background-color: var(--color-white);
+    border-radius: var(--radius-input);
+
+}
+
+.containerHome_filter > div form {
+   
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+
+.containerHome_filter > div form >section:first-child{
+    
+    display: flex;
+}
+.containerHome_filter > div form >section:first-child > div:first-child{
+    width: 90%;
+}
+
+
+.containerHome_about{
+    padding:9rem 16rem;
+    text-align: center
+    
+}
+
+.containerHome_about p{
+    line-height: 2.5rem;
+    margin-top: 2rem;
+
+}
