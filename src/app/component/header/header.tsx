@@ -7,7 +7,7 @@ const Header = ()=>{
             <Link href={"/"}>
                 <Image
                     src={"/logo-alugarcarro.png"}
-                    width={150}
+                    width={200}
                     height={40}
                     alt="Logo alugarCarro"
                     

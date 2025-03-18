@@ -1,0 +1,20 @@
+.containerCardCar{
+    background-color: var(--color-white);
+    padding: 1.6rem;
+    border-radius: 0.6rem;
+    min-width: 35rem;
+    display: flex;
+    gap: 3rem;
+    align-items: start;
+}
+
+.containerCardCar h2{
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: var(--color-green);
+}
+
+
+.containerCardCar p, .containerCardCar span{
+    font-size: 1.4rem;
+}
