@@ -1,6 +1,6 @@
 import Link from "next/link"
 import styles from "./page.module.css"
-import CardCar from "@/app/component/cardCar/car"
+import CardCar from "@/component/cardCar/car"
 
 export default function Gestão (){
     return(

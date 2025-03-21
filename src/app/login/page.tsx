@@ -1,25 +1,75 @@
-import Image from "next/image";
+'use client'
+
 import styles from "./page.module.css";
 import Link from "next/link";
+import { Auth } from "@/services/auth";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import Cooikes from "js-cookie";
+
+
+
+
+
+
+
 
 export default function Login() {
+  
+  const router =  useRouter()
+  
+  const [error,setError] = useState("")
+
+  async function acesso(e:React.FormEvent<HTMLFormElement>){
+    e.preventDefault();
+    setError("")
+
+    const {email,password}= e.currentTarget;
+
+    const user = {
+      email: email.value,
+      password: password.value
+    }
+
+   const response =  await Auth(user)
+
+   if(response.access){
+
+   Cooikes.set("token",JSON.stringify(response),{expires:1})
+    router.push('/')
+
+   }
+   else{
+    
+    setError(response.error)
+
+
+   }
+
+  
+  }
+
   return (
     <section className={styles.containerLogin}>
       <div className={styles.Login_containerForm}>
         <span>Login</span>
         <h1>Acesse sua conta</h1>
-        <form>
-          <label htmlFor="">
-            <input type="email" name="email" id="" placeholder="joao@mail.com" />
+        <form onSubmit={acesso} >
+          <label htmlFor="email">
+            <input type="email" name="email" id="email" placeholder="joao@mail.com" defaultValue={""} required />
           </label>
-          <label htmlFor="">
-            <input type="password" name="password" placeholder="Senha" id="" />
+          <label htmlFor="password">
+            <input type="password" name="password" placeholder="Senha" id="password" defaultValue={""} required/>
           </label>
           <p>Você ainda não possui uma conta?<Link href={""}> Criar conta</Link></p>
           <input type="submit" value="Entrar" />
+          {error?<p className={styles.error}>{error}</p>:null}
+          
         </form>
       </div>
       <div className={styles.Login_containerBanner}></div>
     </section>
   );
 }
+
+
