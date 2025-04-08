@@ -1,0 +1,93 @@
+.containerReserva{
+    padding: 13rem ;
+}
+
+
+.containerReserva h1{
+    color: var(--color-green);
+    margin-bottom: 3rem;
+}
+
+.containerReservaContent{
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+
+.containerReserva .dados{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    
+}
+
+.containerReserva .dadosLogin, .containerReserva .dadosPagamento{
+    background-color: #fff;
+    border-radius: var( --radius-input);
+    padding: 4rem;
+    
+}
+
+.dadosLogin h2, .dadosPagamento h2{
+    font-weight: 400;
+    margin-bottom: 3rem;
+}
+
+.dadosLogin > form{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+}
+
+.dadosLogin > form label span{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.dadosLogin > form label input,.dadosPagamento form label input{
+    width: 100%;
+    padding: 1.4rem;
+    border: 0.1rem solid var(--color-bg-gray);
+    border-radius: var(--radius-input);
+    font-size: 1.6rem;
+}
+
+.containerReserva .dadosPagamento{
+    border: 0.1rem solid var(--color-green-lg);
+}
+
+
+.dadosPagamento form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.dadosPagamento > form label:nth-child(1){
+   
+}
+.dadosPagamento > form label:nth-child(2){
+    width: 40%;
+}
+.dadosPagamento > form label:nth-child(3){
+    width: 35%;
+}
+
+.dadosPagamento > form label:nth-child(4){
+    width: 15%;
+}
+
+
+
+
+
+.containerReserva .confirmacao{
+    padding: 4rem;
+    height: fit-content;
+    width: 30%;
+    border-radius: var( --radius-input);
+    background-color: #fff;
+}

@@ -15,8 +15,7 @@ export default function Panel() {
 
   async function acesso(e:React.FormEvent<HTMLFormElement>){
     e.preventDefault();
-    setError("")
-
+    
     const {email,password}= e.currentTarget;
 
     const user = {
@@ -34,6 +33,7 @@ export default function Panel() {
    }
    else{
     
+
     setError(response.error)
 
 

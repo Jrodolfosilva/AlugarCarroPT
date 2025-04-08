@@ -8,7 +8,13 @@
     align-items: start;
 }
 
+
 .containerCardCar h2{
+    width: 90%;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-size: 1.6rem;
     text-transform: uppercase;
     color: var(--color-green);

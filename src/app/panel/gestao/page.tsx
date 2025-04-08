@@ -1,8 +1,26 @@
+"use client"
+
 import Link from "next/link"
 import styles from "./page.module.css"
 import CardCar from "@/component/cardCar/car"
+import { useEffect, useState } from "react"
+import { CarroType } from "@/utils/types"
+import { GetCarros } from "@/services/carros"
 
 export default function Gestão (){
+    const [carros,setCarros] = useState<CarroType[] | undefined>(undefined);
+
+    useEffect(()=>{
+       
+        (async()=>{
+            GetCarros()
+            .then((data)=>setCarros(data))
+            .catch((error)=>alert("ererrororr"))
+
+        })()
+
+    },[]);
+
     return(
         <section className={styles.containerGestao}>
             <div className={styles.containerGestao_navBar}>
@@ -16,12 +34,13 @@ export default function Gestão (){
             </div>
             <div className={styles.containerGestao_listCar}>
                 <ul>
-                    <CardCar/>
-                    <CardCar/>
-                    <CardCar/>
-                    <CardCar/>
-                    <CardCar/>
-                    <CardCar/>
+                    {
+                        carros?.map((car)=>(
+                            <CardCar key={car.placa} carro={car}/>
+                        ))
+                    }
+                    
+                    
                 </ul>
             </div>
         </section>

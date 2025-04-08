@@ -10,10 +10,6 @@ import Cooikes from "js-cookie";
 
 
 
-
-
-
-
 export default function Login() {
   
   const router =  useRouter()
@@ -32,10 +28,11 @@ export default function Login() {
     }
 
    const response =  await Auth(user)
-
+    console.log(response)
+   
    if(response.access){
 
-   Cooikes.set("token",JSON.stringify(response),{expires:1})
+    Cooikes.set("token",JSON.stringify(response),{expires:1})
     router.push('/')
 
    }

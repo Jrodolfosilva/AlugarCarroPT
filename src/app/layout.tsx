@@ -1,12 +1,12 @@
+
 import React from "react";
-import type { Metadata } from "next";
+
 import {Poppins} from "next/font/google";
-
-
 import "./globals.css";
 import Header from "../component/header/header";
 import Footer from "../component/footer/footer";
-
+import { ApiContext } from "@/component/context/useContext";
+import { Metadata } from "next";
 
 
 const poppins = Poppins({
@@ -14,26 +14,30 @@ const poppins = Poppins({
   weight: ["400","500","600"]
 });
 
-
-
-
 export const metadata: Metadata = {
-  title: "Luxury Wheels - PT",
+  title: "Luxury Wheels",
   description: "Alugue seu Carro em Lisboa - Portugal",
 };
+
+
+
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode;}>) {
   return (
     
-      <html lang="pt-PT">
-        <body className={poppins.className}>
-          <Header/>
-          <main>
-            {children}
-          </main>
-          <Footer/>
-        </body>
-      </html>
+        <html lang="pt-PT">
+          <ApiContext>           
+              <body className={poppins.className}>
+                <Header/>
+                <main>
+                  {children}
+                </main>
+                <Footer/>
+              </body>
+            </ApiContext>
+        </html>
    
   );
 }
+
+

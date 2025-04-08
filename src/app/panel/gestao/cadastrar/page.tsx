@@ -58,7 +58,7 @@ export default function Cadastrar(){
                     </label>
                     <label htmlFor="">
                         <span>Capacidade</span>
-                        <select name="capacidade" id="capacidade" defaultValue={""}>
+                        <select name="quant" id="quant" defaultValue={""}>
                             <option value={""} disabled>Selecionar</option>
                             <option value="3">3 Pessoas</option>
                             <option value="4">4 Pessoas</option>

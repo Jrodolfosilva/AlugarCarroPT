@@ -23,7 +23,7 @@ export async function Auth(user:LoginUserType){
 
     } catch (error) {
         
-        return error
+        return {error: 'Tente novamente mais tarde!'}
     }    
 }
 

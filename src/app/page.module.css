@@ -1,14 +1,13 @@
 .containerHome_banner{
-    height: 50rem;
+    height: 40rem;
     background-image: url("/banner-home.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: bottom;
 }
 
-
 .containerHome_filter{
-    
+    padding-bottom: 3rem;
 }
 
 .containerHome_filter > div{
@@ -23,19 +22,63 @@
 
 .containerHome_filter > div form {
    
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1rem;
 
 
 }
 
-
-.containerHome_filter > div form >section:first-child{
+.containerHome_filter > div form label span{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
     
-    display: flex;
 }
-.containerHome_filter > div form >section:first-child > div:first-child{
-    width: 90%;
+
+.containerHome_filter > div form label input,
+.containerHome_filter > div form label select{
+    width: 100%;
+    padding: 1.2rem;
+    border: 0.1rem solid var(--color-bg-gray);
+    border-radius: var( --radius-input);
+    font-size: 1.6rem;
+    color: rgb(112, 112, 112);
+    min-width: 15rem;
+}  
+
+
+.containerHome_filter > div > form input[type="submit"]{
+    background-color: green;
+    color: #fff;
+    padding: 1.4rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius-input);
+}
+
+
+.containerCarros {
+    margin: 0 auto;
+    padding-bottom: 6rem;
+    width: 80%;
+}
+
+
+.containerCarros > h2 {
+    font-weight: 400;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+
+.containerCarros ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    gap: 2rem;
+    
 }
 
 
@@ -44,6 +87,7 @@
     text-align: center
     
 }
+
 
 .containerHome_about p{
     line-height: 2.5rem;
