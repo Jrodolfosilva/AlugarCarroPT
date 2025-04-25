@@ -76,8 +76,9 @@
 
 .containerCarros ul{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 26rem));
     gap: 2rem;
+    
     
 }
 
@@ -93,4 +94,25 @@
     line-height: 2.5rem;
     margin-top: 2rem;
 
+}
+
+
+
+@media (max-width:768px) {
+    .containerHome_banner{
+        height: 25rem;
+        background-size: contain;
+        background-position: center;
+        background-color: rgb(16, 106, 16);
+    
+    }
+
+    .containerHome_filter > div{
+        padding: 3rem 2rem;
+    }
+
+    .containerCarros ul{
+        grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+
+    }
 }

@@ -41,3 +41,38 @@ body{
 input[type=submit], button{
     cursor: pointer;
 }
+
+
+.bread {
+    font-family: Arial, sans-serif;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+  }
+  
+  .bread ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .bread ul li a {
+    color: #808080;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .bread ul li a:hover {
+    color: #333; 
+  }
+  
+  .bread ul li:last-child {
+    color: #000; 
+    font-size: 1.4rem;
+  }
+  
+  .bread ul li:last-child a {
+    pointer-events: none; 
+  }
+  

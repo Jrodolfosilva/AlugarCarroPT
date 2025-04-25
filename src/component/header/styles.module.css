@@ -25,3 +25,13 @@
     align-items: center;
     gap: 0.4rem;
 }
+
+
+
+
+
+@media(max-width: 768px) {
+    .containerHeader{
+        padding: 1.6rem 3rem;
+    }
+}

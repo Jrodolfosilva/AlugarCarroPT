@@ -1,0 +1,89 @@
+.containerPerfil {
+    padding: 13rem;
+  }
+  
+  .listaAgendamentos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cardAgendamento {
+    border: 1px solid #ccc;
+    padding: 3rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background-color: #fff;
+  }
+
+  .cardAgendamento strong{
+    font-size: 2rem;
+  }
+  
+  .listaAgendamentos li {
+    font-size: 1.4rem;
+  }
+  .botoes {
+    margin-top: 1rem;
+  }
+  
+  .btnExcluir {
+    background: #e74c3c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    margin-right: 0.5rem;
+    cursor: pointer;
+  }
+  
+  .btnReagendar {
+    background: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .formularioReagendamento {
+    margin-top: 1rem;
+  }
+  
+  .campoFormulario {
+    margin-bottom: 1rem;
+  }
+  
+  .btnAtualizar {
+    background: #2ecc71;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+
+
+  @media (max-width: 768px) {
+    .containerPerfil {
+      padding: 13rem 1.2rem;
+    }
+
+    .listaAgendamentos li {
+      font-size: 1.2rem;
+    }
+
+    .btnExcluir,
+    .btnReagendar,
+    .btnAtualizar {
+      font-size: 1.2rem;
+    }
+
+    .formularioReagendamento {
+      margin-top: 0.5rem;
+    }
+
+    .campoFormulario {
+      margin-bottom: 0.5rem;
+    }
+    
+  }

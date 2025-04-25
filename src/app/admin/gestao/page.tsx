@@ -5,7 +5,7 @@ import styles from "./page.module.css"
 import CardCar from "@/component/cardCar/car"
 import { useEffect, useState } from "react"
 import { CarroType } from "@/utils/types"
-import { GetCarros } from "@/services/carros"
+import { buscarCarros } from "@/services/carros"
 
 export default function Gestão (){
     const [carros,setCarros] = useState<CarroType[] | undefined>(undefined);
@@ -13,7 +13,7 @@ export default function Gestão (){
     useEffect(()=>{
        
         (async()=>{
-            GetCarros()
+            buscarCarros()
             .then((data)=>setCarros(data))
             .catch((error)=>alert("ererrororr"))
 
@@ -36,7 +36,7 @@ export default function Gestão (){
                 <ul>
                     {
                         carros?.map((car)=>(
-                            <CardCar key={car.placa} carro={car}/>
+                            <CardCar client={false} key={car.placa} carro={car}/>
                         ))
                     }
                     

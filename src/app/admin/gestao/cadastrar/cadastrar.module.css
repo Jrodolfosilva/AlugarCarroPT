@@ -2,12 +2,9 @@
     padding: 13rem 13rem 9rem 13rem;
 }
 
-.containerCadastro span{
-    display: block;
-    color: var( --color-placeholder-input);
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-}   
+
+  
+  
 
 .containerCadastro h1{
     color: var(--color-green);
@@ -23,10 +20,11 @@
 
 .containerCadastro > div form {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     gap: 3rem;
-    align-items: center;
+    align-items: flex-start;
 }
+
 
 .containerCadastro > div form label span{
     display: block;
@@ -60,5 +58,14 @@
     font-weight: 600;
     text-align: center;
     border-radius: 3rem;
+    
+}
+
+
+
+@media (max-width:768px){
+    .containerCadastro{
+        padding: 13rem 1.2rem;
+    }
     
 }

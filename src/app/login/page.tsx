@@ -32,8 +32,8 @@ export default function Login() {
    
    if(response.access){
 
-    Cooikes.set("token",JSON.stringify(response),{expires:1})
-    router.push('/')
+    Cooikes.set("tokenUser",JSON.stringify(response),{expires:1})
+    router.push('login/account')
 
    }
    else{

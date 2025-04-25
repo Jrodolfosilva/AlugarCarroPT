@@ -60,7 +60,7 @@ export type ParamsFilterType ={
 
 
 export type CarroType = {
-    id: number,
+    id: string,
     veiculo: string,
     quant: string,
     tipo: string,
@@ -98,3 +98,18 @@ export type UserContextType = {
     login?: IUserLogin | null,
     date?: string
 }
+
+
+
+export type Agendamento = {
+    userId: number;
+    userId_nome: string;
+    veiculo: number;
+    veiculo_nome: string;
+    veiculo_marca: string;
+    data_inicio: string;
+    data_fim: string;
+    status: string;
+    id: number  
+  };
+  

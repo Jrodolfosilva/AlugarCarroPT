@@ -26,17 +26,13 @@ const Header = ()=>{
             </Link>
             <nav>
                 <ul>
-                    <li><Link href={"/panel"}>Admin</Link></li>
-                    <li><Link href={"/panel/gestao/cadastrar"}>Cadastrar carro</Link></li>
-                    <li><Link href={"/panel/gestao/"}>Carros Cadastrados</Link></li>
-                    <li><Link href={""}>Contacto</Link></li>
                     <li><Link href={access?"/login":"/login"}>
                     <Image
-                    src={"/avatar.png"}
-                    width={25}
-                    height={25}
-                    quality={100}
-                    alt=""
+                        src={"/avatar.png"}
+                        width={25}
+                        height={25}
+                        quality={100}
+                        alt=""
                     />
                     {access?"Minha conta":"Login"}</Link></li>
                 </ul>

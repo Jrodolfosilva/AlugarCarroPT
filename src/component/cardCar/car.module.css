@@ -1,16 +1,28 @@
 .containerCardCar{
     background-color: var(--color-white);
-    padding: 1.6rem;
+    padding: 3rem;
     border-radius: 0.6rem;
-    min-width: 35rem;
+    width: 26rem;
+
+   
+
     display: flex;
     gap: 3rem;
-    align-items: start;
+    align-items: left;
+    flex-direction: column;
+    
 }
 
 
+.containerCardCar img{
+    
+    width: 100%;
+    object-fit: cover;
+    
+}
+
 .containerCardCar h2{
-    width: 90%;
+    width: 100%;
 
     overflow: hidden;
     white-space: nowrap;
@@ -21,6 +33,39 @@
 }
 
 
-.containerCardCar p, .containerCardCar span{
+.containerCardCar p{
+    font-size: 2rem;
+}
+
+.containerCardCar span{
     font-size: 1.4rem;
+}
+
+.containerCardCar button {
+    background-color: var(--color-green-lg);
+    color: var(--color-white);
+    padding: 1rem;
+    border-radius:var(--radius-input);
+    border: none;
+    width: 100%;
+    font-size: 1.6rem;
+    font-weight: 500;
+    
+}
+
+.delete{
+    padding: 10px!important;
+    background-color: transparent!important;
+    color: red!important;
+    font-size: 1.4rem !important;
+    margin-top: -1rem;
+
+}
+
+
+
+@media (max-width:768px) {
+    .containerCardCar{
+        width: 100%;
+    }
 }

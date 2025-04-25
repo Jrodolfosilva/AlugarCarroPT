@@ -1,67 +1,110 @@
-import { CreateAgendamentoType, EditAgendamentoType } from "@/utils/types"
+import { CreateAgendamentoType, EditAgendamentoType,Agendamento } from "@/utils/types"
 import { baseURL } from "./config";
 
-export default async function GetAgendamento (token:string){
-
-   try {
-    const agendamento = await fetch(`${baseURL}agendamento/`,{
-        method:"GET",
-        headers:{
-            "Content-Type":"application/json",
-            "Authorization": `Bearer ${token}`
-        }
-    });
-
-    const response = await agendamento.json();
-
-    return response
-
-   } catch (error) {
-
-        return error
-
-   }
-}
 
 
 
-export async function CreateAgendamento (agendamentoData:CreateAgendamentoType){
+
+
+
+
+
+export async function criarAgendamento (agendamentoData:FormData){
     try {
-        const agendamento = await fetch("http://localhost:8000/api/v1/agendamento/",{
+        const agendamento = await fetch(`${baseURL}agendamento/`,{
             method:"POST",
-            headers:{
-                "Content-Type":"application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQyNTAzMDYwLCJpYXQiOjE3NDI1MDI3NjAsImp0aSI6ImQ3ZDc3Mjk3NTcxZDRiN2ZhYjFhMjZhYTUxNDkwZTYzIiwidXNlcl9pZCI6MX0.AROWH-47HM8Zh0PbFOTBmF-1ByMKD-KhJU1TiYp8oHY"
-            },
-            body: JSON.stringify(agendamentoData)
+            body:agendamentoData
         })
 
         const response = await agendamento.json();
-
         return response
 
     } catch (error) {
-        return error
+        console.log(error)  
+        return {error:"Erro ao criar agendamento"}
     }
 }
 
 
 
-export async function UpdateAgendamento (agendamentoData:EditAgendamentoType){
+
+
+
+
+export async function buscarAgendamento(token: string | undefined) {
+    if (!token) {
+      console.warn("Token não encontrado!");
+      return null;
+    }
+  
     try {
-        const agendamento = await fetch("http://localhost:8000/api/v1/agendamento/",{
-            method:"PUT",
-            headers:{
-                "Content-Type":"application/json",
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQyNTAzMDYwLCJpYXQiOjE3NDI1MDI3NjAsImp0aSI6ImQ3ZDc3Mjk3NTcxZDRiN2ZhYjFhMjZhYTUxNDkwZTYzIiwidXNlcl9pZCI6MX0.AROWH-47HM8Zh0PbFOTBmF-1ByMKD-KhJU1TiYp8oHY"
-            },
-            body: JSON.stringify(agendamentoData)
-        })
+      const response = await fetch("http://localhost/api/v1/agendamento/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "content-type": "application/json",
+        },
+      });
+  
+     
+  
+      const data: Agendamento[] = await response.json();
+      return data;
+    } catch (err) {
+      console.error("Erro ao buscar agendamentos:", err);
+      return null;
+    }
+  }
+  
 
-        const response = await agendamento.json();
-        return response
+
+
+
+export async function atualizarAgendamento(
+    token: string,
+    formData: FormData
+  ) {
+    if (!token) {
+      console.warn("Token não encontrado!");
+      return null;
+    }
+  
+    try {
+      const response = await fetch("http://localhost/api/v1/agendamento/", {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          
+        },
+        body: formData,
+      });
+  
+      if (!response.ok) {
+        const errorData = await response.json();
+        
+        return { error: errorData };
+      }
+  
+      const data = await response.json();
+      return data;
+
 
     } catch (error) {
-        return error
+     
+      return { error: "Erro ao atualizar agendamento" };
     }
-}
+  }
+  
+
+
+
+  export async function excluirAgendamento(token: string, id: number) {
+    return fetch(`http://localhost/api/v1/agendamento/`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ id }),
+    });
+  }
+  
