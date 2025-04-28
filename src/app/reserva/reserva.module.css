@@ -105,7 +105,18 @@
     width: 30%;	
 }
 
+.temConta{
+   margin: 1rem;
+    
+    font-size: 1.6rem;
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    
+    color: rgb(255, 0, 0);
+    cursor: pointer;
 
+}
 
 .containerReserva .confirmacao {
     padding: 4rem 3rem;

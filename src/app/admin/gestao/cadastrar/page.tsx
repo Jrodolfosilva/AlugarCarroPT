@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import styles from "./cadastrar.module.css";
 import { cadastroCarro } from "@/services/carros";
 import { useState, useEffect } from "react";
+import { baseURL } from "@/services/config";
 
 export default function Cadastrar() {
   const [mensagem, setMensagem] = useState("");
@@ -18,7 +19,7 @@ export default function Cadastrar() {
 
     async function fetchSelectData() {
       try {
-        const res = await fetch("http://localhost:8000/api/v1/info/dados/list/");
+        const res = await fetch(`${baseURL}/info/dados/list/`);
         const data = await res.json();
         setDadosSelect(data);
       } catch (error) {

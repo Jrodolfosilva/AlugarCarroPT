@@ -62,6 +62,16 @@
 }
 
 
+.excluirCarro{
+    font-size: 1.6rem;
+    cursor: pointer;
+    align-self: center;
+    background: transparent;
+    color: red;
+    border: none;
+    text-decoration: underline;
+}
+
 
 @media (max-width:768px){
     .containerCadastro{

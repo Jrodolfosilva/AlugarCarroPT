@@ -119,7 +119,7 @@ export async function deleteCarro(token: string, carroId: string) {
       
           const result = await response.json();
           console.log(result.message);
-          return result; // Retorna o resultado da exclusão
+          return result; 
       
         } catch (error) {
           console.error(error);

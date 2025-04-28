@@ -104,7 +104,7 @@ export default function Reserva() {
 
             <p>
               {temConta?"Não possui uma conta?":"Você possui uma conta?"}
-              <button type="button" onClick={() => setTemConta(!temConta)}>
+              <button className={styles.temConta} type="button" onClick={() => setTemConta(!temConta)}>
                 Clique aqui
               </button>
             </p>

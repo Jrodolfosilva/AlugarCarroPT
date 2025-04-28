@@ -1,9 +1,10 @@
 "use client";
 import Cookies from "js-cookie";
 import styles from "./editar.module.css";
-import { atualizarCarro } from "@/services/carros";
+import { atualizarCarro, deleteCarro } from "@/services/carros";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";  
+import { usePathname,useRouter  } from "next/navigation";  
+import { baseURL } from "@/services/config";
 
 
 
@@ -31,6 +32,7 @@ export default function Editar() {
 
   const pathname = usePathname();  
   const id = pathname.split("/").pop();  
+  const router = useRouter();
 
   useEffect(() => {
     if (id) {
@@ -39,7 +41,7 @@ export default function Editar() {
 
     async function fetchSelectData() {
       try {
-        const res = await fetch("http://localhost:8000/api/v1/info/dados/list/");
+        const res = await fetch(`${baseURL}info/dados/list/`);
         const data = await res.json();
         setDadosSelect(data);
       } catch (error) {
@@ -51,9 +53,9 @@ export default function Editar() {
   }, []);  
 
  
-  const fetchCarroData = async () => {
+const fetchCarroData = async () => {
     try {
-      const res = await fetch(`http://localhost/api/v1/carro/${id}`);
+      const res = await fetch(`${baseURL}carro/${id}`);
       const data = await res.json();
 
     
@@ -72,9 +74,6 @@ export default function Editar() {
     const token = Cookies.get("tokenAdmin");
     const form = e.currentTarget;
     const formData = new FormData(form);
-
-
-    
 
     try {
       if (!token) {
@@ -100,6 +99,25 @@ export default function Editar() {
     }
   }
 
+  async function handleDelete() {
+    const confirmar = confirm("Tem certeza que deseja excluir este veículo?");
+    if (!confirmar) return;
+    const token = Cookies.get("tokenAdmin");
+    if (!token || !id) {
+      setMensagem("Não foi possível excluir o carro.");
+      return;
+    }
+    const response = await deleteCarro(JSON.parse(token).access, id);
+    if (!response.error) {
+      alert("Carro excluído com sucesso!");
+      router.push("/admin/gestao");
+      
+    } else {
+      setMensagem(response.error);
+    }
+  }
+
+
   return (
     <section className={styles.containerCadastro}>
       <nav className="bread">
@@ -109,8 +127,8 @@ export default function Editar() {
           <li>Editar</li> 
         </ul>
       </nav>
-      <h1>Editar veículo</h1>
-      <button>Excluir Veículo</button>
+      
+     
       <div>
         <form onSubmit={handleSubmit}>
           <label>
@@ -206,6 +224,7 @@ export default function Editar() {
           </label>
 
           <input type="submit" value="Alterar" />
+          <button type="button" onClick={handleDelete} className={styles.excluirCarro}>Excluir Veículo</button>
           {mensagem && <p>{mensagem}</p>}
         </form>
       </div>

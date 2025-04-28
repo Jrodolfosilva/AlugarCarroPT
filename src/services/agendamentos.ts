@@ -5,10 +5,6 @@ import { baseURL } from "./config";
 
 
 
-
-
-
-
 export async function criarAgendamento (agendamentoData:FormData){
     try {
         const agendamento = await fetch(`${baseURL}agendamento/`,{
@@ -26,11 +22,6 @@ export async function criarAgendamento (agendamentoData:FormData){
 }
 
 
-
-
-
-
-
 export async function buscarAgendamento(token: string | undefined) {
     if (!token) {
       console.warn("Token não encontrado!");
@@ -38,7 +29,7 @@ export async function buscarAgendamento(token: string | undefined) {
     }
   
     try {
-      const response = await fetch("http://localhost/api/v1/agendamento/", {
+      const response = await fetch(`${baseURL}agendamento/`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "content-type": "application/json",
@@ -53,11 +44,8 @@ export async function buscarAgendamento(token: string | undefined) {
       console.error("Erro ao buscar agendamentos:", err);
       return null;
     }
-  }
+}
   
-
-
-
 
 export async function atualizarAgendamento(
     token: string,
@@ -69,7 +57,7 @@ export async function atualizarAgendamento(
     }
   
     try {
-      const response = await fetch("http://localhost/api/v1/agendamento/", {
+      const response = await fetch(`${baseURL}agendamento/`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -92,13 +80,11 @@ export async function atualizarAgendamento(
      
       return { error: "Erro ao atualizar agendamento" };
     }
-  }
+}
   
 
-
-
-  export async function excluirAgendamento(token: string, id: number) {
-    return fetch(`http://localhost/api/v1/agendamento/`, {
+export async function excluirAgendamento(token: string, id: number) {
+    return fetch(`${baseURL}agendamento/`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -106,5 +92,5 @@ export async function atualizarAgendamento(
       },
       body: JSON.stringify({ id }),
     });
-  }
+}
   

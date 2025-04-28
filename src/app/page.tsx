@@ -20,7 +20,6 @@ export default function Home() {
     checkout: "",
   });
 
-  // Função para filtrar carros
   async function filterCarros(e: React.FormEvent<HTMLElement>) {
     e.preventDefault();
 
@@ -31,7 +30,6 @@ export default function Home() {
     let devolucao = data.get("devolucao") as string;
 
     if (retirada && devolucao) {
-      // Atualizando o estado do checkin e checkout
       SetChecks({ checkin: retirada, checkout: devolucao });
 
       formData.append("data_init", `${new Date(retirada).toLocaleDateString("pt-BR")}`);
@@ -56,21 +54,17 @@ export default function Home() {
     }
   }
 
-  // Função que é chamada quando o valor de 'retirada' é alterado
   const handleCheckinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newCheckin = e.target.value;
     SetChecks((prevState) => ({
       checkin: newCheckin,
-      // Se o checkout já foi preenchido, mantém ele. Caso contrário, ajusta para o checkin.
       checkout: prevState.checkout && newCheckin > prevState.checkout ? newCheckin : prevState.checkout,
     }));
   };
 
-  // Função que é chamada quando o valor de 'devolucao' (checkout) é alterado
   const handleCheckoutChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newCheckout = e.target.value;
 
-    // Verifica se a data de devolução não é anterior ao checkin
     if (newCheckout < checks.checkin) {
       alert("A data de devolução não pode ser anterior à data de retirada.");
     } else {

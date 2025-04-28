@@ -126,7 +126,7 @@ export default function Account() {
         <ul className={Styles.listaAgendamentos}>
           {agendamentos.map((ag, i) => (
             <li key={i} className={Styles.cardAgendamento}>
-              <strong>{ag.userId_nome}</strong> alugou um{" "}
+              
               <strong>{ag.veiculo_nome}</strong> ({ag.veiculo_marca})<br />
               De: {formatarData(ag.data_inicio)} até {formatarData(ag.data_fim)}<br />
               Status: <em>{ag.status}</em>

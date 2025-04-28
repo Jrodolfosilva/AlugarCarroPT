@@ -39,11 +39,8 @@ export default function Login() {
    else{
     
     setError(response.error)
-
-
    }
 
-  
   }
 
   return (
@@ -58,7 +55,6 @@ export default function Login() {
           <label htmlFor="password">
             <input type="password" name="password" placeholder="Senha" id="password" defaultValue={""} required/>
           </label>
-          <p>Você ainda não possui uma conta?<Link href={""}> Criar conta</Link></p>
           <input type="submit" value="Entrar" />
           {error?<p className={styles.error}>{error}</p>:null}
           
